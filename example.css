@@ -1,0 +1,103 @@
+body{
+	display: grid;
+	grid-template: 
+	"... ...... ...... ..." 10px
+	"... header header ..." 300px
+	"... ...... ...... ..." 10px
+	"... left   center ..." 1fr
+	"... ...... ...... ..." 10px
+	/ 10px 150px 1fr 10px;
+	border: solid;
+	border-color: darkblue;
+	
+	font-family: 'Montserrat Subrayada', sans-serif;
+	}
+
+ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+a{
+	border: solid;
+	border-color: darkblue;
+}
+
+/*header内*/
+header{
+	color: white;
+	grid-area: header;
+	background-color: darkblue;
+	text-align: center;
+	font-size: 25px;
+}
+
+/*contents内*/
+main{
+	grid-area: center;
+	margin-left: 20px;
+	font-family: none;
+}
+
+aside{
+	grid-area: left;
+	text-align: center;
+	margin-right: 10px;
+	display: flex;
+	flex-direction: column;
+}
+
+/*footer内*/
+div{
+	background-color: darkblue;
+	height: 300px;
+	margin-top: auto;
+}
+
+small{
+	color: white;
+}
+
+footer{
+	background-color: darkblue;
+	grid-area: footer;
+	display: none;
+}
+
+@media(max-width: 600px){
+	body{
+		grid-template:
+		"header" 300px
+		"center" 1fr
+		"left" auto
+		"footer" 300px
+		/100%;
+
+	}
+
+	ul{
+		display: flex;
+		flex-direction: row;
+	}
+
+	a{
+		flex: 1;
+	}
+
+	footer{
+		display: block;
+	}
+	div{
+		display: none;
+	}
+	aside{
+		position: fixed;
+		bottom: 10px;
+		width: 100%;
+		background-color: white;
+		}
+
+}
