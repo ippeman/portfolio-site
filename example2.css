@@ -53,11 +53,6 @@ main{
 	table-layout: fixed;
 	padding-left: 10px;}
 
-#canvas{
-	margin-top: 50px;
-	width: 550px;
-	height: 400px;
-}
 
 aside{
 	grid-area: left;
