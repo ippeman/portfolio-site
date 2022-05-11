@@ -23,33 +23,62 @@
     <header>
         <h1>IPPEI TAKAKURA<h1>
         <h2>THIS IS MY PORTFOLIO SITE.</h2>
+        <ul class="h_guideline">
+            <a href="#index">Profile</a>
+            <a href="#index2">My Skills</a>
+            <a href="#index3">Works</a>
+        </ul>
     </header>
 
     
     <aside>
-        <ul>
-            <a href="index.html">Home</a>
-            <a href="index.html">About me</a>
-            <a href="index.html">contact</a>
+        <ul class="guideline">
+            <a href="#index">Profile</a>
+            <a href="#index2">My Skills</a>
+            <a href="#index3">Works</a>
         </ul>
 
-
-        <div>
+        <div class="footer">
             <small>
                 @ 2022 IPPEI TAKAKURA
             </small>
         </div>
+
+
     </aside>
 
     <main>
-        <iframe class = 'calendar' src="https://calendar.google.com/calendar/embed?src=ja.japanese%23holiday%40group.v.calendar.google.com&ctz=Asia%2FTokyo" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-    </main>
+        
+        <h1 id="index">プロフィール</h1>
 
-    <footer>
-        <small>
-            @ 2022 IPPEI TAKAKURA
-        </small>
-    </footer>
+        <div class="container">
+            <img src="{% static 'ippei.jpeg' %}"　width="192" height="262"/>
+            <table>
+                <tr><td>名前</td><td>高蔵一平</td></tr>                    
+                <tr><td>生年月日</td><td>1999年9月26日(22歳)</td></tr>
+                <tr><td>出身</td><td>日本・福岡県福岡市早良区</td></tr>
+                <tr><td>身長</td><td>174cm</td></tr>
+                <tr><td>血液型</td><td>B型</td></tr>
+                <tr><td>学歴</td><td>九州工業大学情報工学部</td></tr>
+            </table>
+        </div>
+
+        <h1 id="index2">マイスキル</h1>
+        <ul class="skill">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>javascript</li>
+            <li>python</li>
+            <li>django</li>
+            <li>C言語 </li>
+            <li>java</li>
+            <li>MySQL</li>
+            <li>git</li>
+            </ul>
+
+        <h1 id="index3">作品</h1>
+
+    </main>
 
  </body>
 </html>

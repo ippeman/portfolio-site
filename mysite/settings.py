@@ -12,55 +12,62 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 TEMPLATE_DIR =os.path.join(BASE_DIR,"templates")
 STATIC_DIR = os.path.join(BASE_DIR,"static")
 
-# Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'c3kjbzg(_4#si!n-2!2aajxt%ia_$a6j#fq88#7+b%!eqy60dg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True #どこが間違っているのかエラーを出してくれる
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["*"] #本番環境ではサーバーのアドレスを入力
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.admin', #管理サイト
+    'django.contrib.auth', #認証機能の実装
+    'django.contrib.contenttypes', #インスタンスはprojectのモデルを返したり、モデルのインスタンスを返したりする
+    'django.contrib.sessions', #サーバー側で一定期間通信がない場合はセッションが終了したものと扱う
+    'django.contrib.messages', #フラッシュメッセージの実装
+    'django.contrib.staticfiles', #静的ファイルを設定したいろいろな場所から読み込んでレスポンスを返す
     'app',
-    'widget_tweaks',
+    'widget_tweaks', #属性付与
 ]
 
+#middlewareとは、djangoのリクエスト／レスポンス処理の前後でフックを加える仕組み
+#middlewareの最初の理解として、各ビュー関数で共通して行いたい処理を記述するもの
+#フックとは、プログラムの特定箇所にユーザーが作成した処理を追加して実行する仕組み
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
+    'django.middleware.security.SecurityMiddleware', #リクエスト、レスポンスのセキュリティを強化する
+    'django.contrib.sessions.middleware.SessionMiddleware',#サーバー側で一定期間通信がない場合はセッションが終了したものと扱う
+    'django.middleware.common.CommonMiddleware', #アクセス制限を行う
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+
+    #csrfの検証を行う csrfとは悪意のある人が作ったサイトにアクセスした人のパソコンから、勝手に別のWebサイトに
+    #対してHTTPリクエストが送られてしまい、そのWebサイト上で被害者が本来意図していないアクションを強制的に取らされるというもの
+
+    'django.contrib.auth.middleware.AuthenticationMiddleware', #認証機能の実装
+    'django.contrib.messages.middleware.MessageMiddleware', #フラッシュメッセージの実装
+    'django.middleware.clickjacking.XFrameOptionsMiddleware', #クリックジャギング対策
+    #クリックジャギングとは、サイト訪問者を騙してクリックさせるなど意図しない操作をするよう誘導させる手法
+    'whitenoise.middleware.WhiteNoiseMiddleware', #whitenoiseを有効にする
+    #whitenoiseとはCSSや画像の処理をサポートする
 ]
 
 ROOT_URLCONF = 'mysite.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR,],
-        'APP_DIRS': True,
-        'OPTIONS': {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates', #テンプレートエンジンを指定
+        'DIRS': [TEMPLATE_DIR,], #テンプレートを探すフォルダのリストを指定
+        'APP_DIRS': True, #アプリケーションフォルダ配下を探すかの指定
+        'OPTIONS': { #各オプション情報の設定
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -79,8 +86,10 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mydb',
+        'USER': 'root',
+        'PASSWORD': 'password',
     }
 }
 
