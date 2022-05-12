@@ -42,20 +42,23 @@
             <small>
                 @ 2022 IPPEI TAKAKURA
             </small>
+
         </div>
 
 
     </aside>
 
     <main>
-        
+        <div class="date">
+            {% now "現在時刻：Y年m月d日 H時i分" %}
+        </div>
         <h1 id="index">プロフィール</h1>
 
         <div class="container">
             <img src="{% static 'ippei.jpeg' %}"　width="192" height="262"/>
             <table>
                 <tr><td>名前</td><td>高蔵一平</td></tr>                    
-                <tr><td>生年月日</td><td>1999年9月26日(22歳)</td></tr>
+                <tr><td>生年月日</td><td>1999年9月26日(22)</td></tr>
                 <tr><td>出身</td><td>日本・福岡県福岡市早良区</td></tr>
                 <tr><td>身長</td><td>174cm</td></tr>
                 <tr><td>血液型</td><td>B型</td></tr>
@@ -64,17 +67,15 @@
         </div>
 
         <h1 id="index2">マイスキル</h1>
-        <ul class="skill">
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>javascript</li>
-            <li>python</li>
-            <li>django</li>
-            <li>C言語 </li>
-            <li>java</li>
-            <li>MySQL</li>
-            <li>git</li>
+        <div  class="skill_group">
+            <ul>
+                {% for skill in skills %}
+                <li>{{ skill }}</li>
+                {% empty %}
+                <li>スキルがありません</li>
+                {% endfor %}
             </ul>
+        </div>
 
         <h1 id="index3">作品</h1>
 
