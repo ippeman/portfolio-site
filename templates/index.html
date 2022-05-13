@@ -54,8 +54,8 @@
         </div>
         <h1 id="index">プロフィール</h1>
 
-        <div class="container">
-            <img src="{% static 'ippei.jpeg' %}"　width="192" height="262"/>
+        <div class="container position_center margin_bottom">
+            <a href="#index"><img src="{% static 'ippei.jpeg' %}"　width="192" height="262"/></a>
             <table>
                 <tr><td>名前</td><td>高蔵一平</td></tr>                    
                 <tr><td>生年月日</td><td>1999年9月26日(22)</td></tr>
@@ -65,19 +65,37 @@
                 <tr><td>学歴</td><td>九州工業大学情報工学部</td></tr>
             </table>
         </div>
-
+        <hr>
         <h1 id="index2">マイスキル</h1>
-        <div  class="skill_group">
+        <div  class="skill_group margin_bottom">
             <ul>
                 {% for skill in skills %}
                 <li>{{ skill }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <hr>
+        <h1 id="index3">作品</h1>
+
+        <h1 class="position_center">To Do List</h1>
+        <form action='/todo_post/#index3' method='POST' class="position_center">{%csrf_token%}
+            <input class="task_value" type="text" name='content'/>
+            <input class="task_submit" type="submit" name='送信'/>
+        </form>
+        <div id="task_content">
+            <h2>Current Tasks</h2>
+            <ul class="task_list">
+                {% for todo_list in todo_lists %}
+                <li>
+                    {{todo_list.content}}
+                </li>
                 {% empty %}
-                <li>スキルがありません</li>
+                <li>リストは空です</li>
                 {% endfor %}
             </ul>
         </div>
 
-        <h1 id="index3">作品</h1>
+        <hr>
 
     </main>
 

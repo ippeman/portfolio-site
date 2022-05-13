@@ -82,8 +82,7 @@ aside{
 	text-align: center;
 	margin-right: 10px;
 	display: flex;
-	flex-direction: column;
-}
+	flex-direction: column;}
 
 .skill_group{
 	list-style-type: disc;
@@ -91,14 +90,34 @@ aside{
 	font-size: 25px;
 	background-color: skyblue;
 	margin-right: 100px;
+	min-height: 300px;
 }
 
+#task_content{
+	background-color: skyblue;
+	margin-left: 100px;
+	margin-right: 100px;
+	min-height: 500px;
+	margin-bottom: 100px;
+}
+
+.position_center{
+	display: flex;
+	justify-content: center;
+}
+
+.margin_bottom{
+	margin-bottom: 100px;
+}
 
 /*footer内*/
 .footer{
 	background-color: darkblue;
 	height: 300px;
 	margin-top: auto;
+	min-height: 60%;
+	display: flex;
+	align-items: flex-end;
 }
 
 small{

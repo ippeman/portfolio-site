@@ -1,13 +1,11 @@
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from django.views.generic import TemplateView
+from app.models import Todo
 
-
-class Index(TemplateView):
-	template_name = "index.html"
-
-	def get_context_data(self):
-		ctxt = super().get_context_data()
-		ctxt["skills"] = [
-			"HTML",
+def todoapp(request):
+	todo_lists = Todo.objects.all()
+	context={'skills':["HTML",
             "CSS",
             "javascript",
             "python",
@@ -15,9 +13,17 @@ class Index(TemplateView):
             "C言語",
             "java",
             "MySQL",
-            "git",
-		]
-		return ctxt
+            "git",],'todo_lists': todo_lists}
+
+	return render(request, "index.html",context)
+
+#新しいtodoタスクが入力されたら保存
+#HTMLにリダイレクト
+def todo_post(request):
+	todo_task = Todo(content = request.POST['content'])
+	todo_task.save()
+	return HttpResponseRedirect('/todo/')
+
 
 
 
