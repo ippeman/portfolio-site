@@ -2,6 +2,13 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.views.generic import TemplateView
 from app.models import Todo
+from datetime import date
+from dateutil.relativedelta import relativedelta
+
+d0 = date(1999,9,26) #私の生年月日
+d1 = date.today() #今日の年月日
+myage = relativedelta(d1,d0) #今日の年月日-私の生年月日
+myage = myage.years #現在の自分の年齢
 
 def todoapp(request):
 	todo_lists = Todo.objects.all()
@@ -13,7 +20,9 @@ def todoapp(request):
             "C言語",
             "java",
             "MySQL",
-            "git",],'todo_lists': todo_lists}
+            "git",],
+            'todo_lists': todo_lists,
+            "myage":myage}
 
 	return render(request, "index.html",context)
 
