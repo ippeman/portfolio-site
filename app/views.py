@@ -22,7 +22,7 @@ def todoapp(request):
             "MySQL",
             "git",],
             'todo_lists': todo_lists,
-            "myage":myage}
+            "myage":myage,}
 
 	return render(request, "index.html",context)
 
@@ -32,7 +32,6 @@ def todo_post(request):
 	todo_task = Todo(content = request.POST['content'])
 	todo_task.save()
 	return HttpResponseRedirect('/todo/')
-
 
 
 

@@ -86,10 +86,9 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mydb',
-        'USER': 'root',
-        'PASSWORD': 'password',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'app_todo',
+        'USER': 'Ippei',
     }
 }
 

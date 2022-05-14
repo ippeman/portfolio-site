@@ -112,7 +112,6 @@ aside{
 }
 
 .task_list{
-	font-size: 50px;
 	text-align: left;
 }
 .position_center{
@@ -123,14 +122,23 @@ aside{
 .complete{
 	color: black;
 	text-decoration: none;
+
+}
+
+.li_margin_bottom{
+	margin-bottom: 20px;
+}
+.checkbox{
+	display: none;
 }
 .checkbox:checked + .complete{
 	color: black;
 	text-decoration: line-through;
 }
-.checkbox{
-	display: none;
+.created_day{
+	font-size: 10px;
 }
+
 .margin_bottom{
 	margin-bottom: 100px;
 }

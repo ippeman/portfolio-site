@@ -86,10 +86,14 @@
             <h2 class="position_center">Current Tasks</h2>
             <ul class="task_list">
                 {% for todo_list in todo_lists %}
-                    <li>
-                        <input id="line{{todo_list.id}}" class="checkbox" type="checkbox">
+                    <li class="li_margin_bottom">                 
+                        <input type="checkbox" class="checkbox" id="line{{todo_list.id}}" value={{todo_list.checkbox}} name='checkbox'>
                         <label class="complete" for="line{{todo_list.id}}">
                             {{todo_list.content}}
+                            <div class="created_day">
+                                作成日時:
+                            {{todo_list.created_at}}
+                            </div>
                         </label>
                     </li>
                 
