@@ -24,18 +24,18 @@
         <h2>IPPEI TAKAKURA<h2>
         <h2>THIS IS MY PORTFOLIO SITE.</h2>
         <ul class="h_guideline">
-            <a href="#index">Profile</a>
-            <a href="#index2">My Skills</a>
-            <a href="#index3">Works</a>
+            <a class="move_a" href="#index">Profile</a>
+            <a class="move_a" href="#index2">My Skills</a>
+            <a class="move_a" href="#index3">Works</a>
         </ul>
     </header>
 
     
     <aside>
         <ul class="guideline">
-            <a href="#index">Profile</a>
-            <a href="#index2">My Skills</a>
-            <a href="#index3">Works</a>
+            <a class="move_a" href="#index">Profile</a>
+            <a class="move_a" href="#index2">My Skills</a>
+            <a class="move_a" href="#index3">Works</a>
         </ul>
 
         <div class="footer">
@@ -86,9 +86,13 @@
             <h2 class="position_center">Current Tasks</h2>
             <ul class="task_list">
                 {% for todo_list in todo_lists %}
-                <li>
-                    {{todo_list.content}}
-                </li>
+                    <li>
+                        <input id="line{{todo_list.id}}" class="checkbox" type="checkbox">
+                        <label class="complete" for="line{{todo_list.id}}">
+                            {{todo_list.content}}
+                        </label>
+                    </li>
+                
                 {% empty %}
                 <li>リストは空です</li>
                 {% endfor %}

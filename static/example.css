@@ -42,14 +42,14 @@ h1{
 	flex-direction: column;
 }
 
-a{
+.move_a{
 	border: solid;
 	color: white;
 	border-color: rgba(128,128,0,0.5);
 	background-color: rgba(128,128,0,0.5);
 }
 
-a:hover{
+.move_a:hover{
 	background-color: rgba(128,128,0,0.7);
 	color: white;
 }
@@ -120,6 +120,17 @@ aside{
 	justify-content: center;
 }
 
+.complete{
+	color: black;
+	text-decoration: none;
+}
+.checkbox:checked + .complete{
+	color: black;
+	text-decoration: line-through;
+}
+.checkbox{
+	display: none;
+}
 .margin_bottom{
 	margin-bottom: 100px;
 }
