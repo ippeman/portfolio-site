@@ -8,10 +8,6 @@ class Todo(models.Model):
         blank=False,
         null=False,)
 
-        checkbox = models.BooleanField(
-                "checkbox", 
-                default=False,)
-
         created_at = models.DateTimeField(
                 "作成日", default=timezone.now)
 

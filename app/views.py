@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from django.views.generic import TemplateView
 from app.models import Todo
 from datetime import date
 from dateutil.relativedelta import relativedelta
@@ -11,8 +10,10 @@ myage = relativedelta(d1,d0) #今日の年月日-私の生年月日
 myage = myage.years #現在の自分の年齢
 
 def todoapp(request):
-	todo_lists = Todo.objects.all()
-	context={'skills':["HTML",
+    todo_lists = Todo.objects.all()
+	       
+    context={'skills':
+            ["HTML",
             "CSS",
             "javascript",
             "python",
@@ -24,17 +25,19 @@ def todoapp(request):
             'todo_lists': todo_lists,
             "myage":myage,}
 
-	return render(request, "index.html",context)
+    return render(request, "index.html",context)
 
 #新しいtodoタスクが入力されたら保存
 #HTMLにリダイレクト
 def todo_post(request):
-	todo_task = Todo(content = request.POST['content'])
-	todo_task.save()
+	add_task = Todo(content = request.POST['content'])
+	add_task.save()
 	return HttpResponseRedirect('/todo/')
 
-
-
+def todo_remove(request,task_id):
+    remove_task = Todo.objects.get(id=task_id)
+    remove_task.delete()
+    return HttpResponseRedirect('/todo/#index3')
 
 #render(request, templatename, context=None)
 #requestにはgetまたはpostの情報や、セッション情報が格納されている

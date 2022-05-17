@@ -86,15 +86,21 @@
             <h2 class="position_center">Current Tasks</h2>
             <ul class="task_list">
                 {% for todo_list in todo_lists %}
-                    <li class="li_margin_bottom">                 
-                        <input type="checkbox" class="checkbox" id="line{{todo_list.id}}" value={{todo_list.checkbox}} name='checkbox'>
-                        <label class="complete" for="line{{todo_list.id}}">
+                    <li class="li_margin_bottom">                    
+                        <div class="l1">
+                            <form action='/todo_remove/{{todo_list.id}}' method='POST'>{%csrf_token%}
+                                <button class="remove_button">×</button>
+                            </form>
+                        </div>
+
+                        <div class="l2">
                             {{todo_list.content}}
-                            <div class="created_day">
-                                作成日時:
+                        </div>
+
+                        <div class="l3">
                             {{todo_list.created_at}}
-                            </div>
-                        </label>
+                        </div>
+                        
                     </li>
                 
                 {% empty %}
