@@ -68,11 +68,11 @@
         <hr>
         <h1 id="index2">My Skills</h1>
         <div  class="skill_group margin_bottom">
-            <ul>
-                {% for skill in skills %}
-                <li>{{ skill }}</li>
+            <table>
+                {% for skill in skill_lists %}
+                <tr><td>{{skill.skill }}</td><td>{{skill.proficiency }}</td></tr>
                 {% endfor %}
-            </ul>
+            </table>
         </div>
         <hr>
         <h1 id="index3">My Works</h1>

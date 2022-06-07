@@ -11,3 +11,12 @@ class Todo(models.Model):
         created_at = models.DateTimeField(
                 "作成日", default=timezone.now)
 
+class Skill(models.Model):
+        skill = models.TextField(
+                blank=False,
+                null = False,)
+        
+        proficiency = models.TextField(
+                blank=False,
+                null=False,)
+

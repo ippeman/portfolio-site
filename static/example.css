@@ -1,9 +1,3 @@
-*{
-	/*デフォルトのpaddingとmarginを0にする*/
-	padding:0;
-	margin:0;
-}
-
 body{
 	display: grid;
 	grid-template: 
@@ -187,3 +181,4 @@ small{
 	color: white;
 	margin-bottom: 10px;
 }
+
