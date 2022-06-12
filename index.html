@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="IE=EDge">
+
+  <title>ポートフォリオサイト</title>
+  <meta name="description" content="高蔵一平のポートフォリオサイトです。">
+  <meta name="keywords" content="高蔵一平, エンジニア, ポートフォリオサイト">
+  <meta name="author" content="高蔵一平">
+
+
+  <link rel="stylesheet" href="example.css"/>
+ </head>
+
+
+
+ <body>
+    <header>
+        <h2>IPPEI TAKAKURA<h2>
+        <h2>THIS IS MY PORTFOLIO SITE.</h2>
+        <ul class="h_guideline">
+            <a class="move_a" href="#index">Profile</a>
+            <a class="move_a" href="#index2">My Skills</a>
+            <a class="move_a" href="#index3">Works</a>
+        </ul>
+    </header>
+    
+    <aside>
+        <ul class="guideline">
+            <a class="move_a" href="#index">Profile</a>
+            <a class="move_a" href="#index2">My Skills</a>
+            <a class="move_a" href="#index3">Works</a>
+        </ul>
+
+        <div class="footer">
+            <small>
+                @ 2022 IPPEI TAKAKURA
+            </small>
+
+        </div>
+
+
+    </aside>
+
+    <main>
+        <div class="date" id="date">
+            <!-- 日付入力-->
+        </div>
+        <h1 id="index">My Profile</h1>
+
+        <div class="container position_center margin_bottom">
+            <a href="#index"><img src="ippei.jpeg" width="192" height="262"/></a>
+            <table>
+                <tr><td>名前</td><td>高蔵一平</td></tr>                    
+                <tr><td>生年月日</td><td>1999年9月26日(<span id="myAge"></span>)</td></tr>
+                <tr><td>出身</td><td>日本・福岡県福岡市早良区</td></tr>
+                <tr><td>身長</td><td>174cm</td></tr>
+                <tr><td>血液型</td><td>B型</td></tr>
+                <tr><td>学歴</td><td>九州工業大学情報工学部</td></tr>
+            </table>
+        </div>
+        <hr>
+        <h1 id="index2">My Skills</h1>
+        <div  class="skill_group margin_bottom postion_center" id="skill_group">
+            <table id="skill_group2">
+            </table>
+        </div>
+        <hr>
+        <h1 id="index3">My Works</h1>
+
+        <h2 class="position_center">To Do List</h2>
+        <div class="position_center">
+            <input class="task_value" id="taskValue" type="text" name='content'autocomplete="off"
+            />
+            <input class="task_submit" id="taskSubmit" type="submit" name='送信'/>
+        </div>
+        
+        <div id="task_content">
+            <h2 class="position_center">Current Tasks</h2>
+            <ul class="task_list" id="taskList">
+            </ul>
+        </div>
+
+        <hr>
+    </main>
+    <script type="text/javascript" src="out.js"></script>
+ </body>
+</html>
