@@ -13,8 +13,6 @@
 
 
   <link rel="stylesheet" href="{% static 'example.css' %}"/>
-
-
  </head>
 
 
@@ -29,7 +27,6 @@
             <a class="move_a" href="#index3">Works</a>
         </ul>
     </header>
-
     
     <aside>
         <ul class="guideline">
@@ -55,7 +52,7 @@
         <h1 id="index">My Profile</h1>
 
         <div class="container position_center margin_bottom">
-            <a href="#index"><img src="{% static 'ippei.jpeg' %}"　width="192" height="262"/></a>
+            <img src="{% static 'ippei.jpeg' %}"　width="192" height="262"/>
             <table>
                 <tr><td>名前</td><td>高蔵一平</td></tr>                    
                 <tr><td>生年月日</td><td>1999年9月26日({{myage}})</td></tr>
@@ -78,7 +75,8 @@
         <h1 id="index3">My Works</h1>
 
         <h2 class="position_center">To Do List</h2>
-        <form action='/todo_post/#index3' method='POST' class="position_center">{%csrf_token%}
+        <form action='/todo_post/#index3' method='POST' class="position_center" autocomplete="off"
+        >{%csrf_token%}
             <input class="task_value" type="text" name='content'/>
             <input class="task_submit" type="submit" name='送信'/>
         </form>
@@ -110,8 +108,6 @@
         </div>
 
         <hr>
-
     </main>
-
  </body>
 </html>
